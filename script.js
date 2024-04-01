@@ -1,17 +1,30 @@
-// You can add JavaScript functionality here if needed
-console.log("Script loaded");
-// JavaScript for fancy button
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', function() {
-    alert('Button clicked!');
-});
+// script.js
 
-// JavaScript for interactive rapper names
-const rapperNames = document.querySelectorAll('#rapper-list li');
-rapperNames.forEach(function(rapper) {
-    rapper.addEventListener('click', function() {
-        const rapperName = rapper.textContent;
-        alert(`You clicked on ${rapperName}. Redirecting to their YouTube channel...`);
-    });
-});
+// Function to fetch and update NEPSE data
+function fetchNEPSEData() {
+    // Replace 'NEPSE_API_ENDPOINT' with the actual API endpoint for fetching NEPSE data
+    const nepseAPI = 'NEPSE_API_ENDPOINT';
+
+    fetch(nepseAPI)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update the NEPSE index on the webpage
+            document.getElementById('nepse-index').textContent = `NEPSE Index: ${data.nepse_index}`;
+        })
+        .catch(error => {
+            console.error('There was a problem fetching NEPSE data:', error);
+            document.getElementById('nepse-index').textContent = 'Failed to fetch NEPSE data';
+        });
+}
+
+// Fetch NEPSE data initially
+fetchNEPSEData();
+
+// Fetch NEPSE data every 30 seconds (for example)
+setInterval(fetchNEPSEData, 30000); // 30 seconds
 

@@ -88,4 +88,39 @@ footer {
     text-align: center;
     padding: 20px;
 }
+/* Add styles for the fancy button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Add styles for the rapper names */
+#rapper-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#rapper-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+#rapper-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+#rapper-list li a:hover {
+    color: #007bff;
+}
 
